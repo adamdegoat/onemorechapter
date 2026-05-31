@@ -192,6 +192,19 @@ main.front{max-width:var(--wide);padding:0 1.25rem}
 .ncard-sum{display:block;font-family:"Lora",Georgia,serif;font-size:.82rem;color:var(--muted);line-height:1.45;margin:.35rem 0 .5rem}
 .ncard-link{display:block;font-family:"Inter",sans-serif;font-weight:600;font-size:.74rem;color:var(--coral)}
 
+/* Mind & Mood — wellbeing band */
+.wellbeing{max-width:var(--wide);margin:3rem auto 0;background:linear-gradient(160deg,#edf4ef,#e4ece6);
+  border:1px solid #d6e3db;border-radius:10px;padding:2rem 2.2rem 2.2rem}
+.well-h{display:flex;align-items:center;gap:1.1rem;margin:0 0 1.7rem;
+  font-family:"Playfair Display",serif;font-weight:600;font-size:1.05rem;text-transform:uppercase;letter-spacing:.14em;color:var(--teal2)}
+.well-h::before,.well-h::after{content:"";flex:1;height:1px;background:#c3d6cb}
+.well-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.well-item{position:relative;padding-left:1rem}
+.well-item::before{content:"";position:absolute;left:0;top:.35rem;bottom:.2rem;width:3px;border-radius:2px;background:var(--teal);opacity:.55}
+.well-label{font-family:"Inter",sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:.62rem;font-weight:600;color:var(--teal)}
+.well-hook{font-family:"Playfair Display",serif;font-weight:600;font-size:1.22rem;line-height:1.2;margin:.2rem 0 .45rem;color:var(--ink)}
+.well-body{font-family:"Lora",Georgia,serif;font-size:.92rem;line-height:1.58;color:#5d534a;margin:0}
+
 /* coloured footer band with newsletter */
 .footer-band{width:100%;background:var(--teal);color:#fff;margin-top:3.6rem;padding:3.2rem 1.25rem 2.6rem}
 .footer-inner{max-width:var(--wide);margin:0 auto;text-align:center}
@@ -224,5 +237,7 @@ main.front{max-width:var(--wide);padding:0 1.25rem}
   .news-grid{grid-template-columns:repeat(2,1fr);gap:1.1rem}
   .news-row{padding:2rem 16px 0}
   .ncard-title{font-size:.98rem}
+  .wellbeing{padding:1.6rem 1.4rem}
+  .well-grid{grid-template-columns:1fr;gap:1.4rem}
   .footer-band{padding:2.6rem 1rem 2.2rem}
 }
