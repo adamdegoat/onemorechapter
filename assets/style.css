@@ -213,7 +213,7 @@ main.front{max-width:var(--wide);padding:0 1.25rem}
   .masthead{padding:1.4rem 1rem .3rem;overflow:hidden}
   .logo{display:block;text-align:center}
   .logo-mark{display:block;width:54px;height:54px;margin:0 auto .45rem}
-  .wordmark-svg{display:block;width:100%;max-height:none}
+  .wordmark-svg{display:block;width:auto;height:30px;max-width:96%;margin:0 auto}
   .strap{font-size:.9rem}
   .standfirst{font-size:1.15rem}
   .frontgrid{grid-template-columns:1fr;gap:1.8rem}
