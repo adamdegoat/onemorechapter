@@ -37,10 +37,12 @@ main{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
 
 .story h1, .archive h1{font-family:"Fraunces",Georgia,serif;font-weight:600;
   font-size:clamp(2rem,6vw,2.9rem);line-height:1.1;margin:.2rem 0 .3rem;letter-spacing:-.01em}
-.byline{color:var(--muted);font-size:.85rem;margin:0 0 1.6rem}
+.dek{font-family:"Lora",Georgia,serif;font-style:italic;font-size:1.4rem;line-height:1.5;
+  color:var(--accent);margin:.1rem 0 1rem;max-width:34rem}
+.byline{color:var(--muted);font-size:.85rem;margin:0 0 1.8rem}
 
-.prose{font-family:"Fraunces",Georgia,serif;font-size:1.2rem;line-height:1.75}
-.prose p{margin:0 0 1.25rem;text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+.prose{font-family:"Lora",Georgia,serif;font-size:1.16rem;line-height:1.85;letter-spacing:.003em}
+.prose p{margin:0 0 1.3rem;text-align:justify;-webkit-hyphens:auto;hyphens:auto}
 .prose p:first-of-type::first-letter{font-size:3.1rem;float:left;line-height:.82;
   padding:.05em .12em 0 0;color:var(--accent);font-weight:600}
 .prose em{font-style:italic}
