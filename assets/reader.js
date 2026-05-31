@@ -161,4 +161,46 @@
       }).catch(function () { nlShow(msg, "Network hiccup — try again?", true); btn.disabled = false; });
     });
   }
+
+  // ---- marquee: tap to expand the quote/habit of the day ----
+  var mq = document.getElementById("marquee");
+  var mqp = document.getElementById("marquee-panel");
+  if (mq && mqp) {
+    function toggleMq() {
+      var open = mqp.hidden;
+      mqp.hidden = !open;
+      mq.setAttribute("aria-expanded", String(open));
+    }
+    mq.addEventListener("click", toggleMq);
+    mq.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleMq(); }
+    });
+  }
+
+  // ---- carousel: auto-advancing story slides ----
+  var car = document.getElementById("carousel");
+  if (car) {
+    var slides = car.querySelectorAll(".slide");
+    var dots = car.querySelectorAll(".dots button");
+    var idx = 0, timer = null;
+    function go(n) {
+      idx = (n + slides.length) % slides.length;
+      for (var i = 0; i < slides.length; i++) slides[i].classList.toggle("on", i === idx);
+      for (var j = 0; j < dots.length; j++) dots[j].classList.toggle("on", j === idx);
+    }
+    function start() { if (slides.length > 1) timer = setInterval(function () { go(idx + 1); }, 6500); }
+    function reset() { clearInterval(timer); start(); }
+    for (var d = 0; d < dots.length; d++) {
+      (function (btn) {
+        btn.addEventListener("click", function () { go(+btn.getAttribute("data-i")); reset(); });
+      })(dots[d]);
+    }
+    var arrows = car.querySelectorAll(".car-arrow");
+    for (var a = 0; a < arrows.length; a++) {
+      (function (arr) {
+        arr.addEventListener("click", function () { go(idx + (+arr.getAttribute("data-dir"))); reset(); });
+      })(arrows[a]);
+    }
+    start();
+  }
 })();
