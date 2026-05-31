@@ -24,10 +24,32 @@
   }
   var VISITOR = vid();
 
+  // ---- attribution (where did this reader arrive from?) ----
+  // Only sent when cfg.TRACK_SOURCE is on AND the source/campaign columns exist;
+  // remembered for the visit so a deep-linked open is credited to the email even
+  // after they navigate. Off by default → never risks the insert.
+  function attribution() {
+    if (!cfg.TRACK_SOURCE) return null;
+    try {
+      var p = new URLSearchParams(location.search);
+      var src = p.get("src"), cmp = p.get("cmp");
+      if (src) { try { sessionStorage.setItem("omc_src", src); if (cmp) sessionStorage.setItem("omc_cmp", cmp); } catch (e) {} }
+      src = src || (function () { try { return sessionStorage.getItem("omc_src"); } catch (e) { return null; } })();
+      cmp = cmp || (function () { try { return sessionStorage.getItem("omc_cmp"); } catch (e) { return null; } })();
+      return src ? { source: src, campaign: cmp || null } : null;
+    } catch (e) { return null; }
+  }
+
   // ---- post a reaction ----
   function post(kind) {
     if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY || !story) return;
     try {
+      var payload = {
+        story_date: story.date, story_slug: story.slug,
+        visitor_id: VISITOR, kind: kind
+      };
+      var attr = attribution();
+      if (attr) { payload.source = attr.source; payload.campaign = attr.campaign; }
       fetch(cfg.SUPABASE_URL.replace(/\/$/, "") + "/rest/v1/reactions", {
         method: "POST",
         headers: {
@@ -36,10 +58,7 @@
           "Authorization": "Bearer " + cfg.SUPABASE_ANON_KEY,
           "Prefer": "resolution=ignore-duplicates,return=minimal"
         },
-        body: JSON.stringify({
-          story_date: story.date, story_slug: story.slug,
-          visitor_id: VISITOR, kind: kind
-        })
+        body: JSON.stringify(payload)
       }).catch(function () {});
     } catch (e) {}
   }
