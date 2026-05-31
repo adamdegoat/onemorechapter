@@ -32,16 +32,12 @@ a:hover{color:var(--coral2)}
 .rule.short{max-width:8rem;margin:1.8rem auto}
 
 /* ---------- masthead ---------- */
-.masthead{max-width:var(--wide);margin:0 auto;padding:1.6rem 1.25rem .3rem;text-align:center}
-.nameplate{display:flex;align-items:center;gap:1.3rem}
-.ear{flex:0 0 9rem;display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink)}
-.ear-l{justify-content:flex-start}
-.ear-r{justify-content:flex-end;text-align:right}
-.ear-mark{width:58px;height:58px;flex:0 0 auto}
-.ear-txt{font-family:"Inter",sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:.16em;font-weight:600;color:var(--muted);line-height:1.5}
-.np-title{flex:1 1 auto;min-width:0;border-left:1px solid var(--line);border-right:1px solid var(--line);padding:0 1.3rem}
+.masthead{max-width:var(--wide);margin:0 auto;padding:1.5rem 1.25rem .3rem;text-align:center}
+.np-logo{display:block;text-decoration:none}
+.np-mark{display:block;width:90px;height:90px;margin:0 auto .45rem}
+.np-title{display:block}
 .wordmark-svg{display:block;width:100%;height:auto}
-.np-rule{margin:.5rem 0 .6rem;border-top:2px solid var(--ink);position:relative}
+.np-rule{margin:.3rem 0 .6rem;border-top:2px solid var(--ink);position:relative}
 .np-rule::after{content:"";position:absolute;left:0;right:0;top:3px;border-top:1px solid var(--ink)}
 .dateline{font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--muted);margin:.7rem 0 0;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.55rem 0}
@@ -255,14 +251,8 @@ main.front{max-width:var(--wide);padding:0 1.25rem}
 
 @media (max-width:760px){
   :root{--measure:100%; --wide:92vw}
-  .masthead{padding:1.3rem 1rem .3rem;overflow:hidden}
-  .nameplate{display:block}
-  .ear-r{display:none}
-  .ear-l{display:block;text-align:center}
-  .ear-l .ear-txt{display:none}
-  .ear-mark{width:50px;height:50px;margin:0 auto .35rem;display:block}
-  .np-title{border:none;padding:0}
-  .wordmark-svg{width:auto;height:30px;max-width:96%;margin:0 auto}
+  .masthead{padding:1.2rem 1rem .3rem;overflow:hidden}
+  .np-mark{width:62px;height:62px;margin:0 auto .35rem}
   .strap{font-size:.9rem}
   .standfirst{font-size:1.15rem}
   .frontgrid{grid-template-columns:1fr;gap:1.8rem}
