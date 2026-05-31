@@ -203,4 +203,29 @@
     }
     start();
   }
+
+  // ---- The Daily Stars (pick your sign, remembered) ----
+  var stars = window.OMC_STARS;
+  var picker = document.querySelector(".star-picker");
+  var readEl = document.getElementById("star-read");
+  if (stars && picker && readEl) {
+    function esc2(s) { return String(s).replace(/[<>&]/g, function (c) { return { "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]; }); }
+    function renderSign(sign) {
+      var d = stars[sign];
+      if (!d) return;
+      readEl.innerHTML = '<div class="star-glyph">' + esc2(d.g) + '</div>' +
+        '<div class="star-name">' + esc2(d.n) + ' <span class="star-dates">' + esc2(d.d) + '</span></div>' +
+        '<p class="star-text">' + esc2(d.t) + '</p>';
+      var bs = picker.querySelectorAll(".star-btn");
+      for (var i = 0; i < bs.length; i++) bs[i].classList.toggle("on", bs[i].getAttribute("data-sign") === sign);
+      try { localStorage.setItem("omc_sign", sign); } catch (e) {}
+    }
+    picker.addEventListener("click", function (e) {
+      var b = e.target.closest(".star-btn");
+      if (b) renderSign(b.getAttribute("data-sign"));
+    });
+    var saved = null; try { saved = localStorage.getItem("omc_sign"); } catch (e) {}
+    if (saved && stars[saved]) renderSign(saved);
+    else { var f0 = picker.querySelector(".star-btn"); if (f0) f0.classList.add("on"); }
+  }
 })();

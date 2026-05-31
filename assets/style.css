@@ -205,6 +205,27 @@ main.front{max-width:var(--wide);padding:0 1.25rem}
 .well-hook{font-family:"Playfair Display",serif;font-weight:600;font-size:1.22rem;line-height:1.2;margin:.2rem 0 .45rem;color:var(--ink)}
 .well-body{font-family:"Lora",Georgia,serif;font-size:.92rem;line-height:1.58;color:#5d534a;margin:0}
 
+/* The Daily Stars — compact horoscope bar */
+.stars{max-width:var(--wide);margin:2.6rem auto 0;text-align:center}
+.stars-sub{color:var(--muted);font-size:.86rem;margin:.1rem 0 1.1rem;font-family:"Inter",sans-serif}
+.star-picker{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin:0 0 1.2rem}
+.star-btn{display:flex;flex-direction:column;align-items:center;gap:.12rem;cursor:pointer;min-width:56px;
+  border:1px solid var(--line);background:var(--card);border-radius:8px;padding:.42rem .5rem;
+  transition:border-color .15s,background .15s,transform .1s}
+.star-btn .sg{font-size:1.15rem;color:var(--coral);line-height:1}
+.star-btn .sn{font-size:.55rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:600}
+.star-btn:hover{border-color:var(--coral);transform:translateY(-1px)}
+.star-btn.on{background:var(--ink);border-color:var(--ink)}
+.star-btn.on .sg{color:var(--amber)}
+.star-btn.on .sn{color:#fff}
+.star-read{display:flex;align-items:center;gap:1.3rem;text-align:left;max-width:42rem;margin:0 auto;
+  background:radial-gradient(140% 180% at 0% 0%,#3a332c,#272320);color:#fff;border-radius:12px;padding:1.2rem 1.7rem;
+  border:1px solid #4a4238;box-shadow:0 1px 0 rgba(234,164,46,.25) inset}
+.star-glyph{font-size:2.5rem;color:var(--amber);flex:0 0 auto;line-height:1}
+.star-name{font-family:"Playfair Display",serif;font-weight:600;font-size:1.12rem}
+.star-dates{font-family:"Inter",sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:#bcae9b;margin-left:.5rem}
+.star-text{font-family:"Lora",Georgia,serif;font-size:.96rem;line-height:1.5;margin:.3rem 0 0;color:#f1e8da}
+
 /* coloured footer band with newsletter */
 .footer-band{width:100%;background:var(--teal);color:#fff;margin-top:3.6rem;padding:3.2rem 1.25rem 2.6rem}
 .footer-inner{max-width:var(--wide);margin:0 auto;text-align:center}
@@ -239,5 +260,7 @@ main.front{max-width:var(--wide);padding:0 1.25rem}
   .ncard-title{font-size:.98rem}
   .wellbeing{padding:1.6rem 1.4rem}
   .well-grid{grid-template-columns:1fr;gap:1.4rem}
+  .star-btn{min-width:50px;padding:.38rem .4rem}
+  .star-read{flex-direction:column;text-align:center;gap:.5rem;padding:1.2rem 1.3rem}
   .footer-band{padding:2.6rem 1rem 2.2rem}
 }
