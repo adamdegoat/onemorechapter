@@ -37,11 +37,11 @@
       "Content-Type": "application/json",
       "apikey": cfg.SUPABASE_ANON_KEY,
       "Authorization": "Bearer " + cfg.SUPABASE_ANON_KEY,
-      "Prefer": "resolution=ignore-duplicates,return=minimal"
+      "Prefer": "return=minimal"
     },
     body: JSON.stringify({ email: email })
   }).then(function (r) {
-    if (r.ok) {
+    if (r.ok || r.status === 409) {  // 409 = already unsubscribed = success
       msg.innerHTML = "You've been unsubscribed. <strong>" + email.replace(/</g, "") +
         "</strong> won't receive any more stories.<br><br>You're always welcome back. 💌";
     } else {
