@@ -36,7 +36,8 @@ a:hover{color:var(--coral2)}
 .np-logo{display:block;text-decoration:none}
 .np-mark{display:block;width:90px;height:90px;margin:0 auto .45rem}
 .np-title{display:block}
-.wordmark-svg{display:block;width:100%;height:auto}
+.wordmark-hand{font-family:"Caveat",cursive;font-weight:700;font-size:clamp(2.6rem,8.5vw,5.8rem);
+  line-height:.95;color:var(--ink);display:inline-block;letter-spacing:.01em}
 .np-rule{margin:.3rem 0 .6rem;border-top:2px solid var(--ink);position:relative}
 .np-rule::after{content:"";position:absolute;left:0;right:0;top:3px;border-top:1px solid var(--ink)}
 .dateline{font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--muted);margin:.7rem 0 0;
@@ -253,7 +254,6 @@ main.front{max-width:var(--wide);padding:0 1.25rem}
   :root{--measure:100%; --wide:92vw}
   .masthead{padding:1.2rem 1rem .3rem;overflow:hidden}
   .np-mark{width:62px;height:62px;margin:0 auto .35rem}
-  .wordmark-svg{width:auto;height:32px;max-width:97%;margin:0 auto}
   .strap{font-size:.9rem}
   .standfirst{font-size:1.15rem}
   .frontgrid{grid-template-columns:1fr;gap:1.8rem}
