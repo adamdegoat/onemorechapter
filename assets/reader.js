@@ -125,4 +125,40 @@
       }
     } catch (e) {}
   }
+
+  // ---- newsletter signup (stores email in Supabase, insert-only) ----
+  function nlShow(el, text, isErr) {
+    if (!el) return; el.textContent = text; el.hidden = false;
+    el.style.color = isErr ? "#b14a63" : "#8e2740";
+  }
+  var nlForm = document.getElementById("nl-form");
+  if (nlForm) {
+    nlForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var emailEl = document.getElementById("nl-email");
+      var msg = document.getElementById("nl-msg");
+      var email = (emailEl.value || "").trim();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        nlShow(msg, "Please enter a valid email.", true); return;
+      }
+      if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
+        nlShow(msg, "Thanks! Signups open very soon. 💌"); return;
+      }
+      var btn = nlForm.querySelector("button"); btn.disabled = true;
+      fetch(cfg.SUPABASE_URL.replace(/\/$/, "") + "/rest/v1/subscribers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": cfg.SUPABASE_ANON_KEY,
+          "Authorization": "Bearer " + cfg.SUPABASE_ANON_KEY,
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify({ email: email, source: (story && story.slug) || "site" })
+      }).then(function (r) {
+        if (r.ok) { nlShow(msg, "You're in 💌 Tomorrow's story lands in your inbox."); nlForm.reset(); }
+        else if (r.status === 409) { nlShow(msg, "You're already on the list — see you tomorrow 💌"); }
+        else { nlShow(msg, "Hmm, that didn't work. Try again?", true); btn.disabled = false; }
+      }).catch(function () { nlShow(msg, "Network hiccup — try again?", true); btn.disabled = false; });
+    });
+  }
 })();
