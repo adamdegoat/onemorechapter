@@ -280,3 +280,43 @@ main.front{max-width:var(--wide);padding:0 1.25rem}
   .star-read{flex-direction:column;text-align:center;gap:.5rem;padding:1.2rem 1.3rem}
   .footer-band{padding:2.6rem 1rem 2.2rem}
 }
+
+/* ---- reading streak chip ---- */
+.streak-chip{font-family:"Inter",sans-serif;font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--coral);font-weight:600;margin:.45rem 0 0}
+
+/* ---- On This Day ---- */
+.otd{max-width:var(--measure);margin:2.4rem auto 0;text-align:center}
+.otd-card{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:10px;padding:1.15rem 1.6rem;max-width:640px;margin:.5rem auto 0;text-align:left}
+.otd-year{display:inline-block;font-family:"Inter",sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.14em;color:var(--amber);text-transform:uppercase;margin-bottom:.3rem}
+.otd-text{font-family:"Lora",Georgia,serif;font-size:1.05rem;line-height:1.6;color:var(--ink);margin:0}
+
+/* ---- The Breakfast Word (daily game) ---- */
+.bw{max-width:var(--measure);margin:2.6rem auto 0;text-align:center}
+.bw-sub{font-family:"Lora",Georgia,serif;font-style:italic;color:var(--muted);font-size:.95rem;margin:.2rem 0 1.1rem}
+.bw-grid{display:grid;gap:6px;justify-content:center;margin:0 auto}
+.bw-row{display:grid;grid-template-columns:repeat(5,52px);gap:6px}
+.bw-tile{width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-family:"Inter",sans-serif;font-weight:700;font-size:1.7rem;text-transform:uppercase;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:6px;transition:transform .08s}
+.bw-tile.typed{border-color:var(--muted);transform:scale(1.04)}
+.bw-tile.filled{color:#fff;border:none}
+.bw-tile.correct{background:var(--teal)}
+.bw-tile.present{background:var(--amber)}
+.bw-tile.absent{background:#b9ab98}
+.bw-msg{font-family:"Lora",Georgia,serif;color:var(--coral2);min-height:1.3em;margin:.9rem 0 .3rem;font-size:1rem}
+.bw-keys{display:flex;flex-direction:column;gap:6px;align-items:center;margin-top:.4rem}
+.bw-krow{display:flex;gap:5px;justify-content:center}
+.bw-key{font-family:"Inter",sans-serif;font-weight:600;font-size:.85rem;text-transform:uppercase;min-width:30px;height:46px;padding:0 .55rem;border:none;border-radius:6px;background:#e6d9c6;color:var(--ink);cursor:pointer;transition:background .1s}
+.bw-key.wide{min-width:54px;font-size:.7rem}
+.bw-key:hover{background:#dccdb6}
+.bw-key.correct{background:var(--teal);color:#fff}
+.bw-key.present{background:var(--amber);color:#fff}
+.bw-key.absent{background:#c3b6a3;color:#fff}
+.bw-share{margin-top:1.1rem;font-family:"Inter",sans-serif;font-weight:600;font-size:.85rem;background:var(--coral);color:#fff;border:none;border-radius:999px;padding:.6rem 1.5rem;cursor:pointer}
+.bw-share:hover{background:var(--coral2)}
+@keyframes bwshake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-7px)}40%,60%{transform:translateX(7px)}}
+.bw-row.shake{animation:bwshake .4s}
+@media (max-width:560px){
+  .bw-row{grid-template-columns:repeat(5,44px)}
+  .bw-tile{width:44px;height:44px;font-size:1.4rem}
+  .bw-key{min-width:26px;height:44px;padding:0 .4rem;font-size:.8rem}
+  .bw-key.wide{min-width:44px}
+}
