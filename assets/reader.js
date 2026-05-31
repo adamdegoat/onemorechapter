@@ -228,4 +228,19 @@
     if (saved && stars[saved]) renderSign(saved);
     else { var f0 = picker.querySelector(".star-btn"); if (f0) f0.classList.add("on"); }
   }
+
+  // ---- live "next edition" countdown to 07:00 SGT (== 23:00 UTC) ----
+  var ne = document.getElementById("next-ed");
+  if (ne) {
+    function nextEd() {
+      var now = new Date();
+      var t = new Date(now);
+      t.setUTCHours(23, 0, 0, 0);
+      if (t <= now) t.setUTCDate(t.getUTCDate() + 1);
+      var ms = t - now, h = Math.floor(ms / 3600000), m = Math.floor((ms % 3600000) / 60000);
+      ne.textContent = "✦ Next edition in " + h + "h " + m + "m";
+    }
+    nextEd();
+    setInterval(nextEd, 60000);
+  }
 })();
