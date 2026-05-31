@@ -1,0 +1,72 @@
+:root{
+  --bg:#fbf7f4; --ink:#241c1c; --muted:#8a7d78; --line:#ece2dc;
+  --rose:#c0506b; --rose-soft:#f3dde2; --card:#ffffff; --accent:#a8324e;
+  --maxw:42rem;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#161013; --ink:#efe7e4; --muted:#a8978f; --line:#2c2226;
+         --rose:#e88aa0; --rose-soft:#33222a; --card:#1d1519; --accent:#f0a7b8; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Inter",system-ui,-apple-system,sans-serif;
+  line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+#omc-progress{position:fixed;top:0;left:0;height:3px;width:0;
+  background:linear-gradient(90deg,var(--rose),var(--accent));z-index:50;transition:width .1s ease-out}
+
+.site-head{display:flex;justify-content:space-between;align-items:center;
+  max-width:var(--maxw);margin:0 auto;padding:1.4rem 1.25rem .6rem}
+.brand{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.15rem;
+  letter-spacing:.01em;color:var(--ink);text-decoration:none}
+.site-head nav a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500}
+.site-head nav a:hover{color:var(--rose)}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
+
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.2rem 0 .6rem}
+.tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;font-weight:600;
+  color:var(--rose);background:var(--rose-soft);padding:.22rem .55rem;border-radius:999px}
+
+.story h1, .archive h1{font-family:"Fraunces",Georgia,serif;font-weight:600;
+  font-size:clamp(2rem,6vw,2.9rem);line-height:1.1;margin:.2rem 0 .3rem;letter-spacing:-.01em}
+.byline{color:var(--muted);font-size:.85rem;margin:0 0 1.6rem}
+
+.prose{font-family:"Fraunces",Georgia,serif;font-size:1.2rem;line-height:1.75}
+.prose p{margin:0 0 1.25rem}
+.prose p:first-of-type::first-letter{font-size:3.1rem;float:left;line-height:.82;
+  padding:.05em .12em 0 0;color:var(--accent);font-weight:600}
+.prose em{font-style:italic}
+hr.scene{border:none;text-align:center;margin:2rem 0}
+hr.scene::before{content:"• • •";color:var(--muted);letter-spacing:.5em}
+
+#omc-end{height:1px}
+
+.reactions{margin:2.5rem 0 1rem;padding:1.5rem;background:var(--card);
+  border:1px solid var(--line);border-radius:16px;text-align:center}
+.react-q{font-family:"Fraunces",serif;font-size:1.15rem;margin:0 0 .9rem}
+.react-row{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
+.reactions button{font:inherit;font-size:.92rem;font-weight:500;cursor:pointer;
+  border:1px solid var(--line);background:var(--bg);color:var(--ink);
+  padding:.55rem .9rem;border-radius:999px;transition:transform .08s,border-color .15s,background .15s}
+.reactions button:hover{border-color:var(--rose);transform:translateY(-1px)}
+.reactions button.chosen{background:var(--rose);color:#fff;border-color:var(--rose)}
+.reactions button.share{margin-left:.2rem}
+.react-thanks{color:var(--rose);font-weight:500;margin:.9rem 0 0}
+.more{margin:1.5rem 0 0}
+.more a, .archive a{color:var(--rose);text-decoration:none;font-weight:500}
+
+.archive .lede{color:var(--muted);margin:.2rem 0 1.6rem}
+.story-list{list-style:none;padding:0;margin:0}
+.story-list li{padding:1rem 0;border-bottom:1px solid var(--line)}
+.story-list a{display:flex;flex-direction:column;gap:.15rem;text-decoration:none}
+.story-list .d{color:var(--muted);font-size:.78rem;letter-spacing:.03em}
+.story-list .t{font-family:"Fraunces",serif;font-size:1.3rem;color:var(--ink);font-weight:600}
+.story-list .m{display:block;color:var(--muted);font-size:.75rem;margin-top:.35rem}
+.story-list .tag{font-size:.66rem}
+
+.site-foot{max-width:var(--maxw);margin:3rem auto 2rem;padding:1.5rem 1.25rem;
+  border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;text-align:center}
+.site-foot .muted{font-size:.75rem;opacity:.8}
