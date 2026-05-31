@@ -125,7 +125,7 @@ hr.scene::before{content:"* * *";color:var(--amber);letter-spacing:.55em;font-si
 main.front{max-width:var(--wide);padding:0 1.25rem}
 
 /* marquee — full-width announcement bar at the very top */
-.marquee{width:100%;background:var(--ink);color:var(--paper);overflow:hidden;cursor:pointer;
+.marquee{width:100%;background:var(--ink);color:var(--paper);overflow:hidden;
   padding:.5rem 0;white-space:nowrap;border-bottom:2px solid var(--amber)}
 .marquee-track{display:inline-block;white-space:nowrap;animation:scroll 50s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
