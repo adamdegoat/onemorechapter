@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unsubscribe — One More Chapter</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Lora:ital@1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/config.js"></script>
+</head>
+<body>
+<header class="masthead">
+  <a class="wordmark" href="index.html">One More Chapter</a>
+  <div class="rule"><span class="orn">❀</span></div>
+</header>
+<main>
+  <div style="max-width:30rem;margin:2rem auto;text-align:center">
+    <h1 style="font-family:'Fraunces',serif;font-weight:600;font-size:2rem">Leaving us?</h1>
+    <p id="msg" style="font-family:'Lora',serif;font-size:1.1rem;color:#5a4f49;line-height:1.6">One moment…</p>
+    <p style="margin-top:1.5rem"><a href="index.html">← Back to today's story</a></p>
+  </div>
+</main>
+<script>
+(function () {
+  var cfg = window.OMC_CONFIG || {};
+  var msg = document.getElementById("msg");
+  var email = new URLSearchParams(location.search).get("email");
+  if (!email) { msg.textContent = "No email specified."; return; }
+  if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
+    msg.innerHTML = "We couldn't reach the server. Please reply to any of our emails with “unsubscribe” and we'll remove you."; return;
+  }
+  fetch(cfg.SUPABASE_URL.replace(/\/$/, "") + "/rest/v1/unsubscribes", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "apikey": cfg.SUPABASE_ANON_KEY,
+      "Authorization": "Bearer " + cfg.SUPABASE_ANON_KEY,
+      "Prefer": "resolution=ignore-duplicates,return=minimal"
+    },
+    body: JSON.stringify({ email: email })
+  }).then(function (r) {
+    if (r.ok) {
+      msg.innerHTML = "You've been unsubscribed. <strong>" + email.replace(/</g, "") +
+        "</strong> won't receive any more stories.<br><br>You're always welcome back. 💌";
+    } else {
+      msg.innerHTML = "Something went wrong. Please reply to any email with “unsubscribe” and we'll take care of it.";
+    }
+  }).catch(function () {
+    msg.innerHTML = "Network issue. Please reply to any email with “unsubscribe” and we'll remove you.";
+  });
+})();
+</script>
+</body>
+</html>
