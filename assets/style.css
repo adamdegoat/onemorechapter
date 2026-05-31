@@ -31,7 +31,7 @@ a:hover{color:var(--coral2)}
 /* ---------- masthead ---------- */
 .masthead{max-width:var(--wide);margin:0 auto;padding:1.8rem 1.25rem .4rem;text-align:center}
 .logo{display:flex;align-items:center;gap:1.3rem;text-decoration:none}
-.logo-mark{flex:0 0 auto;width:80px;height:80px}
+.logo-mark{flex:0 0 auto;width:92px;height:92px}
 .wordmark-svg{flex:1 1 auto;display:block;width:100%;height:auto;max-height:86px}
 .dateline{font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;color:var(--muted);margin:.7rem 0 0;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.55rem 0}
