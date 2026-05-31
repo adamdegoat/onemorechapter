@@ -14,7 +14,7 @@ body{
   background-color:var(--paper);
   background-image:url("paper.png");
   background-repeat:repeat;
-  background-size:540px 540px;
+  background-size:460px 460px;
   background-attachment:fixed;
   font-family:"Inter",system-ui,-apple-system,sans-serif;
   line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
@@ -145,11 +145,13 @@ main.front{max-width:var(--wide);padding:0 1.25rem}
 
 /* carousel — FIXED height (no jumping) */
 .carousel{position:relative;max-width:var(--wide);margin:1.8rem auto 0;height:clamp(280px,24vw,330px);
-  background:linear-gradient(135deg,#db5a3c,#eaa42e);color:#fff;border-radius:8px;overflow:hidden}
+  background:#26211c;color:#fff;border-radius:8px;overflow:hidden}
 .slides{position:relative;height:100%}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity .55s ease;pointer-events:none;
   padding:2.2rem 3.6rem;display:flex;flex-direction:column;justify-content:center;text-align:center}
 .slide.on{opacity:1;pointer-events:auto}
+.slide-romance{background:linear-gradient(140deg,#db5a3c 0%,#c4445c 100%)}   /* warm — passion */
+.slide-feelgood{background:linear-gradient(140deg,#2f8f80 0%,#46996a 100%)}  /* fresh — teal/green */
 .slide blockquote{font-family:"Playfair Display",serif;font-size:clamp(1.3rem,1.9vw,1.7rem);line-height:1.32;
   margin:0 auto;max-width:36rem;font-weight:600}
 .slide-title{font-family:"Lora",serif;font-style:italic;color:#fff3ea;margin:.85rem 0 1.2rem}
