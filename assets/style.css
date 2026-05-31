@@ -37,7 +37,7 @@ a:hover{color:var(--coral2)}
 .np-mark{display:block;width:90px;height:90px;margin:0 auto .45rem}
 .np-title{display:block}
 .wm{display:inline-flex;align-items:baseline;line-height:1;color:var(--ink)}
-.wm-ser{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(2.5rem,7vw,5.1rem)}
+.wm-ser{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(2.5rem,7vw,5.1rem);letter-spacing:-.018em}
 .wm-san{font-family:"Archivo",system-ui,sans-serif;font-weight:800;letter-spacing:-.015em;font-size:clamp(2.5rem,7vw,5.1rem)}
 .np-rule{margin:.3rem 0 .6rem;border-top:2px solid var(--ink);position:relative}
 .np-rule::after{content:"";position:absolute;left:0;right:0;top:3px;border-top:1px solid var(--ink)}
