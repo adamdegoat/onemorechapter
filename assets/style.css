@@ -1,8 +1,9 @@
 :root{
   --bg:#fbf7f4; --ink:#241c1c; --muted:#8a7d78; --line:#ece2dc;
   --rose:#c0506b; --rose-soft:#f3dde2; --card:#ffffff; --accent:#a8324e;
-  --maxw:42rem;
+  --maxw:75vw;
 }
+@media (max-width:760px){ :root{ --maxw:92vw } }
 @media (prefers-color-scheme: dark){
   :root{ --bg:#161013; --ink:#efe7e4; --muted:#a8978f; --line:#2c2226;
          --rose:#e88aa0; --rose-soft:#33222a; --card:#1d1519; --accent:#f0a7b8; }
@@ -26,6 +27,13 @@ body{
 
 main{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
 
+.about{margin:1.4rem 0 .5rem;padding:1.25rem 1.4rem;background:var(--card);
+  border:1px solid var(--line);border-left:3px solid var(--rose);border-radius:14px}
+.about .about-h{font-family:"Fraunces",serif;font-size:1.15rem;font-weight:600;margin:0 0 .35rem}
+.about p{margin:.25rem 0;color:var(--muted);font-size:.95rem;line-height:1.55;text-align:left}
+.about strong{color:var(--ink)}
+.about .today{color:var(--rose);font-weight:600;margin-top:.6rem}
+
 .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.2rem 0 .6rem}
 .tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;font-weight:600;
   color:var(--rose);background:var(--rose-soft);padding:.22rem .55rem;border-radius:999px}
@@ -35,7 +43,7 @@ main{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
 .byline{color:var(--muted);font-size:.85rem;margin:0 0 1.6rem}
 
 .prose{font-family:"Fraunces",Georgia,serif;font-size:1.2rem;line-height:1.75}
-.prose p{margin:0 0 1.25rem}
+.prose p{margin:0 0 1.25rem;text-align:justify;-webkit-hyphens:auto;hyphens:auto}
 .prose p:first-of-type::first-letter{font-size:3.1rem;float:left;line-height:.82;
   padding:.05em .12em 0 0;color:var(--accent);font-weight:600}
 .prose em{font-style:italic}
