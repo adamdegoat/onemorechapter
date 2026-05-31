@@ -46,6 +46,10 @@ a:hover{color:var(--coral2)}
 .dateline a{color:var(--muted);border-bottom:1px solid transparent}
 .dateline a:hover{color:var(--coral);border-color:var(--coral)}
 .dateline .sep{color:var(--amber);margin:0 .55em}
+.dateline .archive-link{color:var(--coral);font-weight:700;border-bottom:1.5px solid var(--coral);
+  padding-bottom:1px;white-space:nowrap;transition:background .15s,color .15s}
+.dateline .archive-link:hover{color:#fff;background:var(--coral);border-color:var(--coral);
+  padding:2px 7px;border-radius:4px}
 .next-ed{font-family:"Inter",sans-serif;font-size:.68rem;text-transform:uppercase;letter-spacing:.16em;
   color:var(--coral);font-weight:600;margin:.55rem 0 0;min-height:.8rem}
 .intro{font-family:"Lora",Georgia,serif;font-style:italic;font-size:1.02rem;color:var(--muted);
